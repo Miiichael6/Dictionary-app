@@ -15,7 +15,7 @@ const WordMean = ({ text, meanings: wordMeaning, individualFeature }) => {
 
       {/* // FIX ERROR */}
 
-      {/* data is a Object, and inside it there is arrays, again fix it */}
+      {/* data "wordMeaning" is an Object, and inside it there is arrays, again fix it */}
 
       {/* {wordMeaning.length > 0 &&
         wordMeaning.map((word, index) => (
