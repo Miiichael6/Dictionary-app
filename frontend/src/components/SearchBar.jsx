@@ -1,33 +1,56 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SearchBar = ({ setText, setMeanings, setIndividualFeature }) => {
+const SearchBar = ({
+  setText,
+  setMeanings,
+  setIndividualFeature,
+  setLoader,
+  text,
+}) => {
   const [word, setWord] = useState("");
-  
+
   const handleChangeText = async (e) => {
     e.preventDefault();
+
+    if (word === text) {
+      setLoader(false);
+      return;
+    }
+
     setText("");
     setMeanings({});
     setIndividualFeature({});
 
-    if (word.trim() === "") return;
-
-    const wordMeaningGotten = await resultWordMeaning(word);
-    if (!wordMeaningGotten) return;
-    if (wordMeaningGotten === "Not found word or that word does not exist.") {
-      setText(wordMeaningGotten);
+    if (word.trim() === "") {
+      setLoader(false);
       return;
     }
 
+    const wordMeaningGotten = await resultWordMeaning(word);
+    if (!wordMeaningGotten) {
+      setLoader(false);
+      return;
+    }
+    if (wordMeaningGotten === "Not found word or that word does not exist.") {
+      setText(wordMeaningGotten);
+      setLoader(false);
+      return;
+    }
+
+    setLoader(false);
     setText(word);
     setMeanings(wordMeaningGotten);
   };
 
   const resultWordMeaning = async (lookForWord) => {
     try {
+      setLoader(true);
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_DICTIONARY}/${lookForWord}`
       );
+
+      // console.log(data)
 
       if (data.length > 0) {
         const phonetic = data[0].phonetic;

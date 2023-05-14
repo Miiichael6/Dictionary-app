@@ -8,15 +8,24 @@ function App() {
     phonetic: "",
   });
   const [meanings, setMeanings] = useState({});
+  const [loader, setLoader] = useState(false);
 
   return (
     <div>
       <SearchBar
         setText={setText}
+        text={text}
         setMeanings={setMeanings}
         setIndividualFeature={setIndividualFeature}
-      />
-      <WordMean text={text} meanings={meanings} individualFeature={individualFeature}/>
+        setLoader={setLoader}
+        />
+          <WordMean
+            text={text}
+            meanings={meanings}
+            individualFeature={individualFeature}
+            setLoader={setLoader}
+            loader={loader}
+          />
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.synonym_option {
+  display: inline-block;
+  margin: .25rem .10rem;
+}
+
+.phonetic_class {
+  margin-bottom: 0.30rem;
+}
+
+.h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: .5rem 0;
+}
+
+.my_30 {
+  margin: 0.30rem 0;
+}
+
+.synonyms_box {
+  display: inline-block;
+  margin-left: .5rem;
+}
