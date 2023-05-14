@@ -13,7 +13,7 @@ const WordMean = ({ text, meanings: wordMeaning, individualFeature, loader }) =>
 
       {loader && <Loader />}
 
-      {<div>
+      <div>
       <div className={css.phonetic_class}>
         {individualFeature.phonetic && (
           <p>
