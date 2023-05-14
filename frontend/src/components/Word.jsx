@@ -19,30 +19,6 @@ const Word = ({ definition }) => {
           </p>
         )}
       </div>
-
-      {/* {definition.length > 0 &&
-        definition.slice(0, 5).map((definition, key) => (
-          <p key={key} className="my-30">
-            <b>definition:</b>
-            <br />
-            {definition.definition}
-          </p>
-        ))}
-
-      {showMore &&
-        definition.slice(5).map((definition, key) => (
-          <p key={key} className="my-30">
-            <b>definition:</b>
-            <br />
-            {definition.definition}
-          </p>
-        ))}
-
-      {lengthDefinitions > 5 && (
-        <button onClick={() => setShowMore(!showMore)}>
-          {!showMore ? "show more" : "show less"}
-        </button>
-      )} */}
     </div>
   );
 };
